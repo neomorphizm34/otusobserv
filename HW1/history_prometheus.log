@@ -1,0 +1,63 @@
+    1  cd /opt/
+    2  wget https://github.com/prometheus/prometheus/releases/download/v3.1.0/prometheus-3.1.0.linux-amd64.tar.gz
+    3  yum update
+    4  reboot
+    5  cd /opt/
+    6  ll
+    7  tar -xzf prometheus*.tar.gz
+    8  ll
+    9  ln s prometheus prometheus-3.1.0.linux-amd64
+   10  ln -ss prometheus prometheus-3.1.0.linux-amd64
+   11  ln -s prometheus prometheus-3.1.0.linux-amd64
+   12  ln -s /opt/prometheus /opt/prometheus-3.1.0.linux-amd64
+   13  ln  /opt/prometheus /opt/prometheus-3.1.0.linux-amd64
+   14  ll
+   15  ln -s /opt/prometheus-3.1.0.linux-amd64 /opt/prometheus
+   16  ll
+   17  rm prometheus-3.1.0.linux-amd64.tar.gz 
+   18  ll
+   19  cd prometheus
+   20  ll
+   21  groupadd --system prometheus
+   22  useradd -s /sbin/nologin --system -g prometheus prometheus
+   23  chown prometheus:prometheus /opt/prometheus-3.1.0.linux-amd64/
+   24  ll
+   25  chown -R prometheus:prometheus /opt/prometheus-3.1.0.linux-amd64/
+   26  ll
+   27  less prometheus.yml 
+   28  vim prometheus.yml 
+   29  vim /etc/systemd/system/prometheus.service
+   30  systemctl daemon-reload
+   31  systemctl enable prometheus
+   32  systemctl start prometheus
+   33  systemctl stop firewalld.service 
+   34  vim prometheus.yml 
+   35  ll
+   36  ./promtool prometheus.yml 
+   37  ./promtool check config prometheus.yml 
+   38  systemctl restart prometheus.service 
+   39  ll
+   40  vim prometheus.yml 
+   41  systemctl status prometheus.service 
+   42  vim /etc/systemd/system/prometheus.service
+   43  systemctl restart prometheus.service 
+   44  systemctl daemon-reload
+   45  systemctl restart prometheus.service 
+   46  systemctl status prometheus.service 
+   47  ll
+   48  vim prometheus.yml 
+   49  promtool check config prometheus.yml 
+   50  ./promtool check config prometheus.yml 
+   51  history
+   52   systemctl restart prometheus.service
+   53   systemctl status prometheus.service
+   54   vim prometheus.yml
+   55  systemctl restart prometheus.service
+   56   vim prometheus.yml
+   57  systemctl restart prometheus.service
+   58  history
+   59  ./promtool check config prometheus.yml
+   60   vim prometheus.yml
+   61  ./promtool check config prometheus.yml
+   62  systemctl restart prometheus.service
+   63  history > /tmp/history.log

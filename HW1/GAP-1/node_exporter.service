@@ -1,0 +1,13 @@
+[Unit]
+Description= Service of Node Exporter
+Wants=network-online.target
+After=network-online.target
+User=prometheus
+Group=prometheus
+
+[Service]
+Type=simple
+ExecStart=/opt/node_exporter/node_exporter
+
+[Install]
+WantedBy=multi-user.target

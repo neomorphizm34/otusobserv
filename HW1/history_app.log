@@ -1,0 +1,184 @@
+    1  yum update
+    2  yum upgrade
+    3  reboot
+    4  yum install nginx
+    5  systemctl enable nginx
+    6  systemctl start nginx
+    7  firewalld status
+    8  firewalld 
+    9  systemctl stop firewalld.service 
+   10  yum install mariadb-server
+   11  systemctl enable mariadb
+   12  systemctl start mariadb
+   13  mysql -u root -p
+   14  yum install php php-pear php-mysqlnd php-curl php-mbstring php-gd php-xml php-pear php-fpm php-mysql php-pdo php-opcache php-json php-zip php-cli
+   15  vim /etc/yum.conf 
+   16  yum install php
+   17  yum install php php-pear php-mysqlnd php-curl php-mbstring php-gd php-xml php-pear php-fpm php-mysql php-pdo php-opcache php-json php-zip php-cli
+   18  dnf remove subscription-manager
+   19  yum install php php-pear php-mysqlnd php-curl php-mbstring php-gd php-xml php-pear php-fpm php-mysql php-pdo php-opcache php-json php-zip php-cli
+   20  yum install php php-pear php-mysqlnd php-curl php-mbstring php-gd php-xml php-pear php-fpm  php-pdo php-opcache php-json php-zip php-cli
+   21  systemctl enable php-fpm
+   22  systemctl start php-fpm
+   23  cd /opt/
+   24  php -version
+   25  wget https://ftp.drupal.org/files/projects/drupal-8.8.5.tar.gz
+   26  tar -xvf drupal-8.8.5.tar.gz
+   27  ll
+   28  mv drupal-8.8.5 /var/www/html/drupal
+   29  chown -R nginx:nginx /var/www/html/drupal
+   30  top
+   31  ps aux | grep nginx
+   32  cd /var/www/html/drupal/sites/default
+   33  ll
+   34  cp -p default.settings.php settings.php
+   35  ll
+   36  vim settings.php 
+   37  vim /etc/nginx/nginx.conf
+   38  nginx -s reload
+   39  vim /etc/nginx/nginx.conf
+   40  nginx -s reload
+   41  cd /opt
+   42  ll
+   43  wget https://ftp.drupal.org/files/projects/drupal-9.5.9.tar.gz
+   44  tar -xvf drupal-9.5.9.tar.gz 
+   45  rm -rf /var/www/html/drupal
+   46  mv drupal-9.5.9 /var/www/html/drupal
+   47  chown -R nginx:nginx /var/www/html/drupal
+   48  cd /var/www/html/drupal/sites/default
+   49  ll
+   50  cp -p default.settings.php settings.php
+   51  ll
+   52  mkdir files/translations
+   53  mkdir files
+   54  mkdir files/translations
+   55  chown -R nginx:nginx /var/www/html/drupal
+   56  ls -lha
+   57  systemctl restart nginx
+   58  chmod -R 777 files
+   59  ls -lha
+   60  cd files/
+   61  ll
+   62  cd translations/
+   63  ll
+   64  cd ..
+   65  pwd
+   66  chmod -R 777 settings.php 
+   67  vim /etc/selinux/config
+   68  reboot
+   69  history
+   70   systemctl stop firewalld.service
+   71  yum install prometheus-node-exporter
+   72  cd /opt/
+   73  ll
+   74  rm *
+   75  mkdir mysql-exporter
+   76  cd mysql-exporter/
+   77  wget https://github.com/prometheus/mysqld_exporter/releases/download/v0.16.0/mysqld_exporter-0.16.0.linux-amd64.tar.gz
+   78  tar -xvf mysqld_exporter-0.16.0.linux-amd64.tar.gz 
+   79  ll
+   80  mv mysqld_exporter-0.16.0.linux-amd64 /opt/
+   81  ll
+   82  cd ..
+   83  ll
+   84  rm -rf mysql-exporter/
+   85  ll
+   86  cd mysqld_exporter-0.16.0.linux-amd64/
+   87  ll
+   88  ./mysqld_exporter 
+   89  systemctl edit --full --force mysqld_exporter.service
+   90  systemctl daemon-reload
+   91  cd ..
+   92  ll
+   93  ln -s mysqld_exporter-0.16.0.linux-amd64 mysqld_exporter
+   94  ll
+   95  systemctl start mysqld_exporter.service 
+   96  systemctl status mysqld_exporter.service 
+   97  :q
+   98  groupadd --system prometheus
+   99  useradd -s /sbin/nologin --system -g prometheus prometheus
+  100  chown -R prometheus 
+  101  ll
+  102  chown -R /opt/mysqld_exporter-0.16.0.linux-amd64/
+  103  chown -R prometheus:prometheus /opt/mysqld_exporter-0.16.0.linux-amd64/
+  104  ll
+  105  chown -R prometheus:prometheus /opt/mysqld_exporter
+  106  ll
+  107  systemctl start mysqld_exporter.service 
+  108  systemctl status mysqld_exporter.service 
+  109  history
+  110  mysql -u root -p
+  111  systemctl start mysqld_exporter.service 
+  112  systemctl status mysqld_exporter.service 
+  113  cd mysqld_exporter
+  114  mysqld_exporter  --version
+  115  ll
+  116  ./mysqld_exporter --version
+  117  mysql -u root -p
+  118  ll
+  119  vim exportet.cnf
+  120  ll
+  121  mv exportet.cnf exporter.cnf
+  122  ll
+  123  history
+  124  systemctl edit --full --force mysqld_exporter.service
+  125  vim /etc/systemd/system/mysqld_exporter.service 
+  126  ll
+  127  vim /etc/systemd/system/mysqld_exporter.service 
+  128  systemctl daemon-reload
+  129  systemctl start mysqld_exporter.service
+  130  systemctl status mysqld_exporter.service
+  131  vim /etc/systemd/system/mysqld_exporter.service 
+  132  exit
+  133  cd /opt/
+  134  mkdir node_exporter
+  135  ll
+  136  rm node_exporter/
+  137  rm -r node_exporter/
+  138  wget https://github.com/prometheus/node_exporter/releases/download/v1.8.2/node_exporter-1.8.2.linux-amd64.tar.gz
+  139  tar -xvf node_exporter-1.8.2.linux-amd64.tar.gz 
+  140  ln -s node_exporter-1.8.2.linux-amd64 node_exporter
+  141  ll
+  142  cd node_exporter
+  143  ll
+  144  systemctl edit --full --force node_exporter.service
+  145  history
+  146  systemctl daemon-reload
+  147  systemctl start node_exporter
+  148  systemctl status node_exporter
+  149  cd..
+  150  cd ..
+  151  wget https://github.com/prometheus/blackbox_exporter/releases/download/v0.25.0/blackbox_exporter-0.25.0.linux-amd64.tar.gz
+  152  tar -xvf blackbox_exporter-0.25.0.linux-amd64.tar.gz 
+  153  ll
+  154  rm *.gz
+  155  ll
+  156  ln -s blackbox_exporter-0.25.0.linux-amd64 blackbox_exporter
+  157  ll
+  158  cd blackbox_exporter
+  159  ll
+  160  vim blackbox.yml 
+  161  history
+  162   vim /etc/systemd/system/mysqld_exporter.service
+  163   vim /etc/systemd/system/blackbox_exporter.service
+  164  systemctl daemon-reload
+  165  systemctl status blackbox_exporter.service 
+  166  systemctl enable blackbox_exporter.service 
+  167  systemctl enable mysqld_exporter.service 
+  168  systemctl enable node_exporter.service 
+  169  systemctl start blackbox_exporter.service 
+  170  systemctl status blackbox_exporter.service 
+  171   vim /etc/systemd/system/blackbox_exporter.service
+  172  systemctl daemon-reload
+  173  systemctl start blackbox_exporter.service 
+  174  systemctl status blackbox_exporter.service 
+  175  /opt/blackbox_exporter/blackbox_exporter --config.my-cnf /opt/blackbox_exporter/blackbox.yml
+  176  /opt/blackbox_exporter/blackbox_exporter --config /opt/blackbox_exporter/blackbox.yml
+  177   vim /etc/systemd/system/blackbox_exporter.service
+  178  systemctl daemon-reload
+  179  systemctl start blackbox_exporter.service 
+  180  systemctl status blackbox_exporter.service 
+  181  history
+  182  cat  /etc/systemd/system/*_exporter.service
+  183  cat  /etc/systemd/system/blackbox_exporter.service 
+  184  history > ~/history.log
