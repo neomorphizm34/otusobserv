@@ -3,7 +3,7 @@ application:
     app1:
       ansible_host: 192.168.63.120
   vars:
-    ansible_user: user1
+    ansible_user: user
 monitoring:
   hosts:
     prometheus:
