@@ -1,5 +1,7 @@
 - name: playUpdate
   hosts: all_servers
   tasks:
-    - name: run yum update
-      ansible.builtin.yum: update_only
+    - name: Upgrade all packages
+      ansible.builtin.yum:
+        name: '*'
+        state: latest

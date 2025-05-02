@@ -26,6 +26,7 @@ docker:
 
 all_servers:
   children:
+    self:
     application:
     monitoring:
-    self:
+    docker:
