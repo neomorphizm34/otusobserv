@@ -21,3 +21,4 @@ all_servers:
   children:
     application:
     monitoring:
+    self:
