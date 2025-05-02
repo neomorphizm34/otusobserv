@@ -1,8 +1,17 @@
-app:
+application:
   hosts:
     app1:
       ansible_host: 192.168.63.120
-mon:
+  vars:
+    ansible_user: user1
+monitoring:
   hosts:
     prometheus:
       ansible_host: 192.168.63.3
+  vars:
+    ansible_user: user1
+
+all_servers:
+  children:
+    application:
+    monitoring:

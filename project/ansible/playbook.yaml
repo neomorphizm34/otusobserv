@@ -1,0 +1,9 @@
+- name: playPing
+  hosts: application
+  tasks:
+    - name: ping
+      ansible.builtin.ping:
+
+    - name: message
+      ansible.builtin.debug:
+        msg: message
