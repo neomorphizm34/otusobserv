@@ -1,6 +1,10 @@
 - name: playPrometheusSrv
   hosts: prometheus
   tasks:
+    - name: Install Git
+      yum:
+        name: git
+        state: present
     - name: Git checkout
       ansible.builtin.git:
         repo: 'https://github.com/neomorphizm34/otusobserv.git'
