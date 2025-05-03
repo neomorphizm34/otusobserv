@@ -1,0 +1,7 @@
+- name: playPrometheusSrv
+  hosts: all_servers
+  tasks:
+    - name: Git checkout
+      ansible.builtin.git:
+        repo: 'https://github.com/neomorphizm34/otusobserv.git'
+        dest: /tmp/checkout
