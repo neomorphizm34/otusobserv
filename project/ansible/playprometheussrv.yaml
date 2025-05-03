@@ -1,14 +1,13 @@
 - name: playPrometheusSrv
   hosts: prometheus
+  become: true
   tasks:
     - name: Install Git
-      become: true
       yum:
         name: git
         state: present
 
     - name: configure prometheus
-      become: true
       copy:
         src: "{{ git_prometheus_config_file }}"
         dest: "{{ prometheus_install_dir }}"
@@ -18,7 +17,6 @@
         validate: "{{ prometheus_install_dir }}promtool check config %s"
 
     - name: restart prometheus
-      become: true
       systemd:
         daemon_reload: true
         name: prometheus
