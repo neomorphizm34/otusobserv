@@ -2,29 +2,21 @@ self:
   hosts:
     mgmt:
       ansible_host: localhost
-  vars:
-    ansible_user: user1
 
 application:
   hosts:
     app1:
       ansible_host: 192.168.63.120
-  vars:
-    ansible_user: user
 
 monitoring:
   hosts:
     prometheus:
       ansible_host: 192.168.63.3
-  vars:
-    ansible_user: user1
 
 docker:
   hosts:
     docker1:
       ansible_host: 192.168.63.5
-  vars:
-    ansible_user: user
 
 all_servers:
   children:
