@@ -10,4 +10,16 @@
     - name: Git checkout
       ansible.builtin.git:
         repo: 'https://github.com/neomorphizm34/otusobserv.git'
-        dest: /tmp/checkout
+        dest: "{{ git_repo_folder }}"
+
+    - name: configure prometheus
+      template:
+        src: "{{ prometheus_config_file }}"
+        dest: "{{ prometheus_install_dir }}/prometheus.yml"
+        force: true
+        owner: prometheus
+        group: prometheus
+        mode: 0640
+        validate: "{{ prometheus_install_dir }}/promtool check config %s"
+      notify:
+        - reload prometheus
