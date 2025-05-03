@@ -7,11 +7,6 @@
         name: git
         state: present
 
-    - name: Git checkout
-      ansible.builtin.git:
-        repo: 'https://github.com/neomorphizm34/otusobserv.git'
-        dest: "{{ git_repo_folder }}"
-
     - name: configure prometheus
       become: true
       copy:
