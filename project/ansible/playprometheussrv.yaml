@@ -16,5 +16,10 @@
         group: prometheus
         mode: 0640
         validate: "{{ prometheus_install_dir }}promtool check config %s"
-      notify:
-        - restart prometheus
+
+    - name: restart prometheus
+      become: true
+      systemd:
+        daemon_reload: true
+        name: prometheus
+        state: restarted
