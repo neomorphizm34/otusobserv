@@ -24,3 +24,6 @@
     - name: Show host information
       ansible.builtin.debug:
         var: result.host_info
+  become: true
+  become_user: user
+  become_method: sudo

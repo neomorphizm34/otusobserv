@@ -11,12 +11,14 @@ application:
       ansible_host: 192.168.63.120
   vars:
     ansible_user: user
+
 monitoring:
   hosts:
     prometheus:
       ansible_host: 192.168.63.3
   vars:
     ansible_user: user1
+
 docker:
   hosts:
     docker1:
