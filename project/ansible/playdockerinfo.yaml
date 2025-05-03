@@ -1,0 +1,26 @@
+- name: playDockerInfo
+  hosts: docker1
+  tasks:
+    - name: Get info on docker host
+      community.docker.docker_host_info:
+      register: result
+
+    - name: Get info on docker host and list images
+      community.docker.docker_host_info:
+        images: true
+      register: result
+
+    - name: Get info on docker host and verbose list images
+      community.docker.docker_host_info:
+        images: true
+        verbose_output: true
+      register: result
+
+    - name: Get info on docker host and used disk space
+      community.docker.docker_host_info:
+        disk_usage: true
+      register: result
+
+    - name: Show host information
+      ansible.builtin.debug:
+        var: result.host_info
