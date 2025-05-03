@@ -1,5 +1,5 @@
 - name: playPrometheusSrv
-  hosts: all_servers
+  hosts: prometheus
   tasks:
     - name: Git checkout
       ansible.builtin.git:
