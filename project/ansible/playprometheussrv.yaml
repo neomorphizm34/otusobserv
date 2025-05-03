@@ -2,10 +2,11 @@
   hosts: prometheus
   tasks:
     - name: Install Git
+      become: true
       yum:
         name: git
         state: present
-      become: true
+
     - name: Git checkout
       ansible.builtin.git:
         repo: 'https://github.com/neomorphizm34/otusobserv.git'
