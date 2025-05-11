@@ -13,7 +13,6 @@ monitoring:
     prometheus:
       ansible_host: 192.168.63.3
   vars:
-    git_repo_folder: "/tmp/checkout"
     git_prometheus_config_file: "/home/user/otusobserv/project/configs/prometheus/prometheus.yml"
     prometheus_install_dir: "/opt/prometheus/"
 
